@@ -1,0 +1,77 @@
+import java.util.*;
+import java.io.*;	
+import java.util.Scanner;
+
+public class Project4Game {
+	
+	public static int gamesWon = 0;
+	public static int gamesLost = 0;
+	public static int gamesTied = 0;
+	public static String computerChoices = "";
+	public static String userChoices = "";
+
+	public static void main(String[] args) {	//main method
+		Scanner console = new Scanner(System.in);
+		explain(); //function call
+		char choice = console.next().charAt(0);
+		char comChoice = computer();		//computer selects
+		System.out.println(" computer chose " + comChoice);
+		System.out.println(" user chose " + choice);
+		declareWinner(choice, comChoice); 
+
+		int gamesPlayed = 0;
+		while (true) {			//game loop
+			gamesPlayed ++;
+			System.out.println(" Games won: " + gamesWon);
+			System.out.println("Games tied: " + gamesTied);
+			System.out.println("Games lost: " + gamesLost);
+			System.out.println(userChoices);
+			System.out.println(computerChoices);
+	}
+	}
+public static void explain() {		//explanation of game
+	System.out.println("Welcome to the game.");
+	System.out.println("You are playing against the computer.");
+	System.out.println("Select rock 'r' paper 'p' or scissors 's'");
+}
+public static char computer() { 	// computer selects a move
+	Random move = new Random();
+	int move1 = move.nextInt(3)+1;
+	int[] record = new int[4];	 // declare array of integers
+	for (int i =0; i<10; i++) {
+		//System.outprintln("the number is "+move1);
+		record[move1]++;
+		move1=move.nextInt(3)+1;
+		}
+	for (int i =1; i<3; i++) 		//used to test random generator
+		System.out.println(" there are "+record[i]+" hits on "+i);
+	if (move1 == 1)
+		return 'r';
+	else if (move1 == 2)
+		return 'p';
+	else return 's';
+}   //closes method comp
+	public static void declareWinner(char user, char machine){
+		if ((user == 'r' && machine == 's') || (user == 'p' && machine == 'r')
+			  || (user == 's' && machine == 'p'))		//if user choice beats comp
+			System.out.println("The human player won.");
+			userChoice += user;
+			gamesWon ++;
+		elseif (user == machine);	// if user make same choice as comp
+			System.out.println("Tied");
+			gamesTied ++; 
+		}
+		elseif
+			System.out.println(" The machine won."); {
+			gamesLost ++;
+		}
+		while (True == False);
+	}
+	public static void GameRecord () throws FileNotFoundException { 	// main method
+		Scanner console = new Scanner(System.in); 	// creating object for keyboard input
+		System.out.print("Enter your name: "); 	// prompt to user
+		String name = console.next(); 	// read input input fro keyboard
+		String fileName = name +".txt"; // creates a string with .txt at the end
+		File f = new File(fileName); 	//associates file name with f
+	}
+}  //closes class Game
